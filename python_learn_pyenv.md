@@ -212,7 +212,7 @@ In [1]:
 anyisalin@MacBook-Pro:~|⇒  jupyter-notebook #使用此命令即可进入 jupyter 的 web 界面
 ```
 
-![jupyter](/Users/anyisalin/Desktop/屏幕快照 2016-10-16 上午12.52.59.png)
+![jupyter](image/jupyter.png)
 
 
 ### IDE 的选择
