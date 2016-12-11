@@ -123,3 +123,144 @@ StopIteration                             Traceback (most recent call last)
 
 StopIteration:
 ```
+
+也可以通过 `for` 循环来获取值.
+
+```python
+In [724]: for i in flatten(nlist):
+     ...:     print(i)
+     ...:
+1
+2
+2
+3
+4
+5
+6
+```
+
+生成器不像普通函数, 不像 `return` 那样返回值, 而是通过 `yield` 语句返回一个值, 并把函数冻结(`freeze`), 函数就停在那个点等待激活, 激活后的函数就从停止的那个点重新执行.
+
+##### 生成器推导式
+
+`python`能够使用列表推导式(解析式) 来实现简单而高效的循环.
+
+```python
+In [740]: [ (x, y) for x in range(1, 3) for y in range(1, 3) ]
+Out[740]: [(1, 1), (1, 2), (2, 1), (2, 2)]
+```
+
+`python` 中也有生成器推导式(解析式), 只需要把 `[]` 换成 `()` 就会返回一个生成器而不是列表.
+
+```python
+In [741]: ( (x, y) for x in range(1, 3) for y in range(1, 3) )
+Out[741]: <generator object <genexpr> at 0x10e288e60>
+
+In [742]: a = ( (x, y) for x in range(1, 3) for y in range(1, 3) )
+
+In [743]: for i in a:
+     ...:     print(i)
+     ...:
+(1, 1)
+(1, 2)
+(2, 1)
+(2, 2)
+```
+
+##### 递归生成器
+
+如果我们要处理一个下面这样的列表, 可能就需要用到递归生成器.
+
+```python
+nlist = [[[[1, 2 ,3]], [2, 4, 5]], [3, 5, 1]]
+```
+
+```python
+def flatten(nlist):
+  try:
+    try: nlist + '' #做类型判断, 不递归类似字符串的对象.
+    except TypeError: pass  #如果捕获TypeError 异常, 则 pass
+    else: raise TypeError #否则再抛出 TypeError 异常
+    for sublist in nlist: #如果是列表或者元组, 则正常递归.
+      for element in flatten(sublist):
+        yield element
+  except TypeError: #如果捕获 TypeError 异常, 只生成 nlist 的值.
+    yield nlist
+
+In [817]: nlist = [[[[1, 2 ,3]], [2, 4, 5]], [3, 5, 1]]
+     ...:
+
+In [818]: d = flatten(nlist)
+
+In [819]: for i in d:
+     ...:     print(i)
+     ...:
+1
+2
+3
+2
+4
+5
+3
+5
+1
+
+In [820]: list(flatten(nlist))
+Out[820]: [1, 2, 3, 2, 4, 5, 3, 5, 1]
+```
+
+##### 通用生成器
+
+生成器在被调用时, 函数体中的代码不会执行, 返回的是一个迭代器, 每次请求一个值, 就会执行生成器中的代码, 知道遇到 `return` 或者 `yield` 语句, `return` 语句意味着生成器要停止执行, `yield` 意味着函数要冻结.
+
+生成器有两部分组成 ,生成器的函数和生成器的迭代器, 生成器的函数是用 `def` 语句定义的部分, 也包括 `yield` 语句, 而生成器的迭代器是函数的返回的部分. 生成器返回的迭代器可以像其他迭代器一样使用.
+
+
+##### 生成器方法
+
+生成器的属性是开始运行后为生成器提供值得能力, 是生成器和外部世界进行交流的渠道.
+
+* `send`: 向生成器内部发送值
+* `close`: 停止生成器
+* `throw`: 引发异常
+
+**Example**
+
+```python
+def rep(value):
+  while True:
+    new = (yield value)
+    if new is not None: value = new
+
+In [844]: d = rep(10)
+
+In [845]: next(d)
+Out[845]: 10
+
+In [846]: next(d)
+Out[846]: 10
+
+In [847]: d.send('Hello World') #send 方法向生成器中发送值
+Out[847]: 'Hello World'
+
+In [848]: next(d)
+Out[848]: 'Hello World'
+
+In [857]: d.close() #close 方法可以停止生成器
+
+In [858]: next(d)
+---------------------------------------------------------------------------
+StopIteration                             Traceback (most recent call last)
+<ipython-input-858-57d0022d53db> in <module>()
+----> 1 next(d)
+
+StopIteration:
+
+In [862]: d.throw(ZeroDivisionError)  #throw 方法可以引发一个异常.
+---------------------------------------------------------------------------
+ZeroDivisionError                         Traceback (most recent call last)
+<ipython-input-862-44c9b58044eb> in <module>()
+----> 1 d.throw(ZeroDivisionError)
+
+ZeroDivisionError:
+```
