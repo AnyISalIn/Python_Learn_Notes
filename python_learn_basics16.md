@@ -124,7 +124,7 @@ StopIteration                             Traceback (most recent call last)
 StopIteration:
 ```
 
-也可以通过 `for` 循环来获取值.
+也可以通过 `for` 循环来对生成器返回的迭代器进行迭代.
 
 ```python
 In [724]: for i in flatten(nlist):
