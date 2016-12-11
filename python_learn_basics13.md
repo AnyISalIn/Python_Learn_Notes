@@ -2,7 +2,7 @@
 
 程序在运行的时候, 可能会遇到很多异常, 我们需要对这些异常进行处理, 本文介绍 `python` 中对异常的处理.
 
-#### `Python` 中的异常
+## `Python` 中的异常
 
 `python` 中使用异常对象 (`exception object`) 来表示异常状态, 遇到错误后会引发异常, 如果异常对象未被捕捉或处理, 程序就会 `Traceback` 并终止运行.
 
@@ -16,7 +16,7 @@ ZeroDivisionError                         Traceback (most recent call last)
 ZeroDivisionError: division by zero
 ```
 
-#### 触发异常
+## 触发异常
 
 可以通过 `raise` 函数引发一个异常.
 
@@ -46,7 +46,7 @@ Exception                                 Traceback (most recent call last)
 Exception: Sorry, Value Error
 ```
 
-##### 异常类列表
+### 异常类列表
 
 | 类名              | 异常                                                                   |
 |-------------------|------------------------------------------------------------------------|
@@ -61,7 +61,7 @@ Exception: Sorry, Value Error
 | ValueError        | 在内建操作或者函数应用于正确类型的对象, 但是该对象使用不合适的值时引发 |
 | ZeroDivisionError | 在除法或取模操作第二个参数使用 0 时引发                                |
 
-#### 异常捕捉
+## 异常捕捉
 
 我们可以对异常进行捕获并处理.
 
@@ -182,7 +182,7 @@ This OK!!!!
 Clean ALL
 ```
 
-#### 异常和函数
+## 异常和函数
 
 如果异常在函数内引发而没有被处理, 它就会被传播到函数调用的地方, 如果那里也没有处理异常, 异常就回被传播到主程序, 程序会带着堆栈跟踪中止..
 

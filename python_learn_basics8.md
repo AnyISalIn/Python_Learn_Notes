@@ -1,6 +1,6 @@
 # Python 学习: 内置容器(字典)
 
-### 什么是字典
+## 什么是字典
 
 在 `python` 中, 当索引不好用的时候, 就应该使用字典, 字典是一种通过名字引用值的数据结构, 这种结构类型称为映射'mapping', 字典是无序的数据结构.
 
@@ -47,9 +47,9 @@ In [23]: phonebooks['AnyISalIn']['phone']
 Out[23]: 110
 ```
 
-### 字典的操作和常用方法
+## 字典的操作和常用方法
 
-#### 初始化一个字典
+### 初始化一个字典
 
 ```python
 
@@ -80,7 +80,7 @@ In [37]: dict(mapping_list)
 Out[37]: {'AnyIsalIn': '110', 'Bill Gates': '120', 'Bob': '119'}
 ```
 
-#### 添加Key, Value
+### 添加Key, Value
 
 ```python
 In [40]: d
@@ -92,7 +92,7 @@ In [42]: d
 Out[42]: {'key': 'value'}
 ```
 
-#### 删除 Key
+### 删除 Key
 
 ```python
 In [42]: d
@@ -104,7 +104,7 @@ In [44]: d
 Out[44]: {}
 ```
 
-#### 更新 Value
+### 更新 Value
 
 ```python
 #python 字典的 key 不可变. 和集合类似.
@@ -117,7 +117,7 @@ In [52]: d
 Out[52]: {'key': 'new_value'}
 ```
 
-#### 清空字典
+### 清空字典
 
 ```python
 In [63]: d
@@ -129,7 +129,7 @@ In [65]: d
 Out[65]: {}
 ```
 
-#### 复制字典(浅复制-->深度复制)
+### 复制字典(浅复制-->深度复制)
 
 ```python
 #如果通过赋值的方式去 "复制" 一个字典(其实只是赋值而已),就会出现下面这样的情况, 因为他们指向的是同一段地址空间.
@@ -253,9 +253,9 @@ In [197]: d
 Out[197]: {'test': ['1', 2, 3]} #原字典没有发生改变.
 ```
 
-#### 其他方法
+### 其他方法
 
-##### fromkeys
+#### fromkeys
 
 ```python
 In [206]: d = {}
@@ -267,7 +267,7 @@ In [214]: d.fromkeys(('key1', 'key2', 'key3'), 'Unkonw')  #也可以指定默认
 Out[214]: {'key1': 'Unkonw', 'key2': 'Unkonw', 'key3': 'Unkonw'}
 ```
 
-##### get
+#### get
 
 ```python
 In [221]: d['jobs'] #通过这种方式访问 key, 如果 key 不存在, 则会报 KeyError 的错误.
@@ -284,7 +284,7 @@ In [223]: d.get('jobs', 'Sorry, Key Not Found') #也可以指定默认返回值.
 Out[223]: 'Sorry, Key Not Found'
 ```
 
-##### items
+#### items
 
 ```python
 In [234]: d
@@ -297,7 +297,7 @@ In [236]: tuple(d.items())
 Out[236]: (('Bill Gates', '120'), ('Bob', '119'), ('AnyIsalIn', '110'))
 ```
 
-##### keys
+#### keys
 
 ```python
 In [238]: d.keys()  #返回字典中的所有 key
@@ -307,7 +307,7 @@ In [239]: list(d.keys())
 Out[239]: ['Bill Gates', 'Bob', 'AnyIsalIn']
 ```
 
-##### values
+#### values
 
 ```python
 In [266]: d
@@ -322,7 +322,7 @@ In [268]: list(d.values()) #返回字典中的所有 value
 Out[268]: ['120', '197', '119', '789', '110']
 ```
 
-##### pop
+#### pop
 
 ```python
 In [246]: d
@@ -338,7 +338,7 @@ In [250]: d
 Out[250]: {'AnyIsalIn': '110', 'Bill Gates': '120'}
 ```
 
-##### popitem
+#### popitem
 
 ```python
 In [252]: d
@@ -357,7 +357,7 @@ In [256]: d
 Out[256]: {'AnyIsalIn': '110'}
 ```
 
-##### update
+#### update
 
 ```python
 In [260]: d

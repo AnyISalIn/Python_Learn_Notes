@@ -1,6 +1,6 @@
 # Python 学习: 字符串格式化
 
-### printf style
+## printf style
 
 绝大多数语言都支持 `printf style` 风格的语句对字符串进行格式化, `python` 也支持.
 
@@ -31,7 +31,7 @@ In [65]: 'Hi, %(name)s, %(age)s' % {'name': 'anyisalin', 'age': 18}
 Out[65]: 'Hi, anyisalin, 18'
 ```
 
-### format
+## format
 
 `python3` 中支持更易用的 `format` 方法来对字符串进行格式化.
 

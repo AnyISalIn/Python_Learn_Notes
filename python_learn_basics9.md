@@ -2,7 +2,7 @@
 
 我们如果需要对代码进行重用, 就需要用到函数, 函数可以让代码更加抽象和简洁.
 
-### 定义一个函数
+## 定义一个函数
 
 ```python
 In [1]: def hello():  #定义一个名字为 hello 的函数
@@ -13,9 +13,9 @@ In [2]: hello() #调用函数
 Hello World
 ```
 
-### 传入参数
+## 传入参数
 
-#### 关键词参数
+## 关键词参数
 
 ```python
 In [3]: def hello_param(name):  #传入一个参数
@@ -37,7 +37,7 @@ Hello, AnyISalIn, 18
 In [8]: hello_multi_paramm(age=19, name='sjmjj')  #通过关键字形式传入
 Hello, sjmjj, 19
 ```
-#### 默认值
+## 默认值
 
 **默认值**
 
@@ -49,7 +49,7 @@ In [10]: def hello(name='AnyISalIn'): #定义默认值为 AnyISalIn
 In [11]: hello()
 Hello, AnyISalIn
 ```
-#### 收集参数
+## 收集参数
 
 **收集参数**
 
@@ -71,7 +71,7 @@ In [29]: hello(x=1, y=2)
 {'x': 1, 'y': 2}
 ```
 
-#### return
+## return
 
 **return 单个值**
 
@@ -109,7 +109,7 @@ In [62]: hello('AnyISalIn', 18) #返回一个元组.
 Out[62]: ('AnyISalIn', 18)
 ```
 
-### 递归
+## 递归
 
 简单的来说, 递归就是函数调用自身
 
